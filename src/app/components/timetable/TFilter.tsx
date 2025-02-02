@@ -42,12 +42,12 @@ const TFilter = ({ onSelectType }: Props) => {
      */
 
     return (
-        <div className="container mx-auto w-full md:flex md:justify-center nd-bg-darkgray">
+        <div className="container mx-auto w-full md:flex md:justify-center bg-accent rounded-2xl">
             <div className="flex space-x-4 overflow-x-auto px-4 py-2 md:w-full md:max-w-screen-lg md:justify-center scrollbar-hidden">
                 {filters.map((filter: Filter, index: number) => (
                     <span
                         key={index}
-                        className={`flex-shrink-0 flex items-center space-x-2 cursor-pointer p-2 ${selectType.types[0] === filter.types[0] ? "nd-bg-lightgray rounded-2xl" : ""}`}
+                        className={`flex-shrink-0 flex items-center space-x-2 cursor-pointer p-2 ${selectType.types[0] === filter.types[0] ? "bg-secondary rounded-2xl" : ""}`}
                         onClick={() => handleSelectType(filter)}
                     >
                         {filter.src && <Image className={filter.background} src={filter.src} alt={filter.display} width={filter.width ?? 35} height={filter.height ?? 35} />}

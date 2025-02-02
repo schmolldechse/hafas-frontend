@@ -90,7 +90,7 @@ const StationSearch: React.FC<Props> = ({ onSelectStation }) => {
 
     return (
         <div
-            className="relative flex flex-col space-x-2 nd-bg-lightgray p-2 rounded-xl"
+            className="relative flex flex-col space-x-2 bg-lightgray p-2 rounded-xl"
             onKeyDown={handleKeyInput}
             ref={dropdownRef}
         >
@@ -100,17 +100,17 @@ const StationSearch: React.FC<Props> = ({ onSelectStation }) => {
                     type="text"
                     placeholder="Search a station"
                     onChange={(e) => handleInputChange(e.target.value)}
-                    className="nd-bg-lightgray text-base md:text-2xl p-1 w-full focus:outline-none"
+                    className="bg-lightgray text-base md:text-2xl p-1 w-full focus:outline-none"
                     value={inputValue}
                     onFocus={() => setIsOpen(true)}
                 />
             </div>
             {isOpen && query.length > 0 && (
-                <div className="absolute top-full left-0 z-50 flex flex-col mt-2 nd-bg-lightgray rounded">
+                <div className="absolute top-full left-0 z-50 flex flex-col mt-2 bg-lightgray rounded">
                     {query.map((location: Station, index) => (
                         <p
                             key={location.evaNr}
-                            className={`text-white text-sm md:text-base m-1 py-0.5 px-2 cursor-pointer nd-bg-lightgray hover:bg-gray-700 rounded ${
+                            className={`text-white text-sm md:text-base m-1 py-0.5 px-2 cursor-pointer bg-lightgray hover:bg-gray-700 rounded ${
                                 focusedQuery === index ? "bg-gray-700" : ""
                             }`}
                             onClick={() => selectStation(location)}

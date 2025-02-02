@@ -38,13 +38,13 @@ const TimePicker: React.FC<Props> = ({ onChangedDate }) => {
         return days.map((day) => (
             <div
                 key={day}
-                className={`p-2 text-center 
-                    ${day.hasSame(selectedDate, "month") ? "" : "text-gray-400"} 
+                className={`p-2 text-center
+                    ${day.hasSame(selectedDate, "month") ? "" : "text-gray-400"}
                     ${day.hasSame(selectedDate, "day")
-                        ? "nd-bg-aqua nd-fg-black font-bold rounded-full"
+                        ? "bg-aqua text-black font-bold rounded-full"
                         : ""
                 }`}
-                onClick={() => setSelectedDate((prev) => 
+                onClick={() => setSelectedDate((prev) =>
                     day.set({ hour: prev.hour, minute: prev.minute })
                 )}
             >
@@ -103,27 +103,27 @@ const TimePicker: React.FC<Props> = ({ onChangedDate }) => {
     };
 
     return (
-        <div className="relative rounded-xl text-black">
+        <div className="relative rounded-xl text">
             {/* Input Field */}
             <div className="flex flex-row space-x-2">
-                <div className={"flex flex-row items-center space-x-2 md:space-x-4 p-2 grow nd-bg-lightgray rounded"}
+                <div className={"flex flex-row items-center space-x-2 md:space-x-4 p-2 grow bg-lightgray rounded"}
                      onClick={() => setShowPicker(true)}
                 >
                     <Image className={"p-1 md:h-[35px] md:w-[35px]"} width={25} height={25} src={"/ui/calendar.svg"} alt={"CALENDAR"} />
                     <span
-                        className={"w-full text-base md:text-2xl nd-bg-lightgray nd-fg-white cursor-pointer focus:outline-none"}
+                        className={"w-full text-base md:text-2xl bg-lightgray text-text cursor-pointer focus:outline-none"}
                     >
                         {selectedDate.toFormat("dd.MM.yyyy - HH:mm")}
                     </span>
                 </div>
-                <button className={"w-fit py-2 px-3 md:px-6 nd-bg-white rounded font-bold"} onClick={() => setSelectedDate(DateTime.now().set({ second: 0, millisecond: 0 }))}>Now</button>
+                <button className={"w-fit py-2 px-3 md:px-6 bg-white rounded font-bold"} onClick={() => setSelectedDate(DateTime.now().set({ second: 0, millisecond: 0 }))}>Now</button>
             </div>
 
             {/* Calendar Picker */}
             {showPicker && (
                 <div
                     ref={pickerRef}
-                    className="absolute top-1/2 left-1/2 mt-8 transform -translate-x-1/2 p-4 w-80 md:top-full md:left-auto md:transform-none md:mt-2 md:w-auto z-10 shadow-lg rounded nd-bg-lightgray nd-fg-white"
+                    className="absolute top-1/2 left-1/2 mt-8 transform -translate-x-1/2 p-4 w-80 md:top-full md:left-auto md:transform-none md:mt-2 md:w-auto z-10 shadow-lg rounded bg-lightgray text-white"
                 >
                     {/* header */}
                     <div className="flex justify-between items-center mb-4">
@@ -145,7 +145,7 @@ const TimePicker: React.FC<Props> = ({ onChangedDate }) => {
                     {/* time inputs */}
                     <div className="mt-4 flex items-center justify-between font-bold space-x-2">
                         <button
-                            className="nd-bg-aqua text-black px-4 md:px-3 py-1 rounded"
+                            className="bg-aqua text-black px-4 md:px-3 py-1 rounded"
                             onClick={() => adjustTimeByMinutes(-15)}
                         >
                             -
@@ -160,7 +160,7 @@ const TimePicker: React.FC<Props> = ({ onChangedDate }) => {
                                 onKeyDown={handleKeyPress}
                                 maxLength={2}
                                 readOnly={true}
-                                className="w-full border rounded text-center text-xl nd-bg-lightgray nd-fg-white border-none focus:outline-none"
+                                className="w-full border rounded text-center text-xl bg-lightgray text-white border-none focus:outline-none"
                             />
                             <span>:</span>
                             <input
@@ -171,12 +171,12 @@ const TimePicker: React.FC<Props> = ({ onChangedDate }) => {
                                 onKeyDown={handleKeyPress}
                                 maxLength={2}
                                 readOnly={true}
-                                className="w-full border rounded text-center text-xl nd-bg-lightgray nd-fg-white border-none focus:outline-none"
+                                className="w-full border rounded text-center text-xl bg-lightgray text-white border-none focus:outline-none"
                             />
                         </div>
 
                         <button
-                            className="nd-bg-aqua text-black px-4 md:px-3 py-1 rounded"
+                            className="bg-aqua text-black px-4 md:px-3 py-1 rounded"
                             onClick={() => adjustTimeByMinutes(15)}
                         >
                             +
@@ -185,7 +185,7 @@ const TimePicker: React.FC<Props> = ({ onChangedDate }) => {
 
                     {/* select button */}
                     <button
-                        className="mt-4 w-full nd-bg-aqua font-bold nd-fg-black py-2 rounded"
+                        className="mt-4 w-full bg-aqua font-bold text-black py-2 rounded"
                         onClick={() => {
                             setShowPicker(false);
                             onChangedDate(selectedDate);
